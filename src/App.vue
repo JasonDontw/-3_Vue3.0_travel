@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <keep-alive exclude="Detail"> <!--將讀取過的頁面資訊存於CACHE中，當返回頁面時，直接從CACHE拿，就不會再加載一次資訊-->
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
-</style>
+<script>
+export default {
+  name: 'App'
+}
+</script>
